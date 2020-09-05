@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+body {
+  font-family: 'Alata', sans-serif;
+  text-align: center;
+}
+
+.App {
+  background-color: #ffffff;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+}
+
+*:focus {
+  outline: none;
+}
+
+textarea, button {
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-bottom: 1.5px solid #526dd9;
+}
+
+input::placeholder, textarea::placeholder, .heading-noContent  {
+  color: #dbd9d9;
+}
+
+input, textarea {
+  color: #595959;
+}
+
+ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  margin-top: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  width: 100%;
+  max-width:100%;
+}
+
+.heading-noContent {
+  margin-top: 60px;
+  font-size: 30px;
+}
+
+.txt-title, .txt-columnName {
+  text-align: center;
+  border-style: none;
+}
+
+.txt-title {
+  margin-top: 30px;
+  font-size: calc(25px + 2vw);
+  width: calc(100px + 20vw);
+}
+
+.txt-columnName {
+  width: 100%;
+  font-size: calc(12px + 2vmin);
+  background-color: #f2f2f2;
+}
+
+.txtarea-newTask {
+  border: 1px solid #000000;
+  font-size: 20px;
+  display: block;
+  background-color: #ffffff;
+}
+
+.txtarea-newTask:focus {
+  box-shadow: 0px 0px 5px #a6aff7;
+}
+
+.txtarea_task {
+  font-size: 20px;
+  background-color: #fff240;
+  animation-name: fadeIn-animation;
+  animation-duration: 1s;
+}
+
+button {
+  cursor: pointer;
+  color: #f7f7f7;
+  border: 0px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: 2px 5px 5px #999999;
+}
+
+.btn-deleteColumn, .btn-deleteTask {
+  background-color: #ff4040;
+}
+
+.btn-deleteColumn:hover, .btn-deleteTask:hover {
+  background-color: #f01717;
+}
+
+.btn-deleteColumn {
+  float: right;
+}
+
+.btn-completeTask {
+  background-color: skyblue;
+}
+
+.column, .txtarea_task {
+  box-shadow: 2px 5px 5px #999999;
+}
+
+.btn-addColumn {
+  font-size: 30px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #8e77e0;
+  position: relative;
+  left: 20px;
+  top: 50%;
+}
+
+.btn-addColumn:hover {
+  background-color: #694dce;
+}
+
+.btn-addTask {
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  background-color: #b1c4cc;
+  border-style: none;
+}
+
+.btn-addTask:hover {
+  background-color: #88a6b5;
+}
+
+.btn-prevArrow {
+  float: left;
+}
+
+.btn-nextArrow {
+  float: right;
+}
+
+.btn-prevArrow, .btn-nextArrow {
+  background-color: #92a6a5;
+}
+
+.btn-prevArrow:hover, .btn-nextArrow:hover {
+  background-color: #627d7c;
+}
+
+.btn-completeTask {
+  background-color: #61b86d;
+}
+
+.btn-completeTask:hover {
+  background-color: #2eb13f;
+}
+
+.column {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+  vertical-align: text-top;
+  width: calc(90px + 15vw);
+  animation-name: fadeIn-animation;
+  animation-duration: 1s;
+  position: relative;
+  text-align: center;
+}
+
+.p-completedTime {
+  margin: 0px 0px 15px 0px;
+  font-size: 12px;
+  animation-name: fadeIn-animation;
+  animation-duration: 1s;
+}
+
+li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow, li:hover .btn-completeTask {
+  display: inline-block;
+
+}
+
+.btn-deleteTask, .btn-prevArrow, .btn-nextArrow, .btn-completeTask {
+  display: none;
+}
+
+@keyframes fadeIn-animation {
+  from {opacity: 0;}
+  to {opacity:  1;}
+}
+
+@media (min-width: 511px) and (max-width: 900px) {
+  .column {
+    width:calc(80px + 20vw);
+  }
+}
+
+@media (min-width: 250px) and (max-width: 550px) {
+  .column {
+    width:calc(140px + 30vw);
+  }
+}
