@@ -1,12 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
+/* Dark Mode*/
+.app-darkMode {
+  background-color: #262626;  
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+}
+
+.app-darkMode .txt-title, .app-darkMode .txt-columnName, .app-darkMode .txtarea-newTask, .app-darkMode .btn-addTask {
+  color: #ebebeb;
+}
+
+.app-darkMode .txt-title {
+  background-color: #262626;
+}
+
+.app-darkMode input:focus {
+  border-bottom: 1.5px solid #858585;
+}
+
+.app-darkMode .column, .app-darkMode .txt-columnName {
+  background-color: #454545; 
+}
+
+.app-darkMode .txtarea-newTask {
+  background-color: #999999;
+}
+
+.app-darkMode .txtarea-newTask::placeholder {
+  color: #918c8c;
+}
+
+.app-darkMode .txtarea-newTask:focus {
+  box-shadow: 0px 0px 5px #000000;
+}
+
+.app-darkMode .txtarea-newTask {
+  background-color: #5c5c5c;
+}
+
+.app-darkMode .btn-addTask {
+  background-color: #4c82cf;
+}
+
+.app-darkMode .btn-addTask:hover {
+  background-color: #3c77c9;
+}
+
+.app-darkMode .column, .app-darkMode .txtarea_task {
+  box-shadow: 2px 5px 5px #000000;
+}
+
+.app-darkMode .txtarea_task {
+  color: #000000;
+  background: #e6c800;
+}
+
 body {
   font-family: 'Alata', sans-serif;
   text-align: center;
 }
 
-.App {
-  background-color: #ffffff;
+.app {
+  background-color: #ffffff;  
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
 }
@@ -49,7 +105,7 @@ textarea {
 
 .heading-noContent {
   margin-top: 60px;
-  font-size: 30px;
+  font-size: calc(15px + 2vw);
 }
 
 .txt-title, .txt-columnName {
@@ -58,7 +114,7 @@ textarea {
 }
 
 .txt-title {
-  margin-top: 30px;
+  margin-top: 15px;
   font-size: calc(25px + 2vw);
   width: calc(100px + 20vw);
 }
@@ -82,7 +138,8 @@ textarea {
 
 .txtarea_task {
   font-size: 20px;
-  background-color: #fff240;
+  resize: auto;
+  background-color: #ffe53d;
   animation-name: fadeIn-animation;
   animation-duration: 1s;
 }
@@ -94,19 +151,80 @@ button {
   margin: 5px;
   border-radius: 5px;
   font-size: 20px;
-  box-shadow: 2px 5px 5px #999999;
+}
+
+.chk-darkMode {
+  justify-self: center; 
+  border-radius: 30px;
+}
+
+.switch-container {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+}
+
+input[type="checkbox"] {
+  width: 80px;
+  height: 30px;
+  -webkit-appearance: none;
+  background: #d6d6d6;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]:before {
+  z-index: 1;
+  content: '';
+  position: absolute; 
+  top: -1px;
+  border-radius: 20px;
+  width: 35px; 
+  height: 35px;
+  background: #575151;
+  transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before {
+  transform: translateX(50px);
+} 
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  display: inline;
+}
+
+
+.switch-on-text, .switch-off-text{
+  pointer-events: none;
+  bottom: 30px;
+}
+.switch-on-text {
+  color: #ffffff;
+  left: 20px;
+}
+
+.switch-off-text {
+  right: 20px;
+}
+
+.app-darkMode input[type="checkbox"] {
+  background: #000000;
+}
+
+.app-darkMode input[type="checkbox"]:before {
+  background: #ffffff;
 }
 
 .btn-deleteColumn, .btn-deleteTask {
-  background-color: #ff4040;
+  background-color:  #ff674f;
 }
 
 .btn-deleteColumn:hover, .btn-deleteTask:hover {
-  background-color: #f01717;
-}
-
-.btn-deleteColumn {
-  float: right;
+  background-color: #ff4040;
 }
 
 .btn-completeTask {
@@ -117,37 +235,41 @@ button {
   box-shadow: 2px 5px 5px #999999;
 }
 
+.menu {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .btn-addColumn {
   font-size: 30px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background-color: #8e77e0;
-  position: relative;
-  left: 20px;
-  top: 50%;
+  background-color: #6366e6;
+  justify-self: center;
 }
 
 .btn-addColumn:hover {
-  background-color: #694dce;
+  background-color: #5459f0;
 }
 
 .btn-addTask {
   margin: 10px 0px 10px 0px;
   width: 100%;
-  background-color: #b1c4cc;
+  background-color: #8fbeff;
   border-style: none;
 }
 
 .btn-addTask:hover {
-  background-color: #88a6b5;
+  background-color: #85b3f2;
 }
 
 .btn-prevArrow {
   float: left;
 }
 
-.btn-nextArrow {
+.btn-nextArrow, .btn-deleteColumn {
   float: right;
 }
 
@@ -190,7 +312,6 @@ button {
 
 li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow, li:hover .btn-completeTask {
   display: inline-block;
-
 }
 
 .btn-deleteTask, .btn-prevArrow, .btn-nextArrow, .btn-completeTask {
@@ -213,3 +334,4 @@ li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow, li:h
     width:calc(140px + 30vw);
   }
 }
+

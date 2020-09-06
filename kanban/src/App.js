@@ -3,12 +3,28 @@ import './App.css';
 import Header from './components/Header';
 import Column from './components/Column';
 
-function App() {
-  return (
-    <div className="App">
-      <Board/>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isDarkMode: false,
+    }
+  }
+
+  changeTheme() {
+    this.setState({
+      isDarkMode: this.state.isDarkMode ? false : true
+    })
+    
+  }
+
+  render() {
+    return (
+      <div className={this.state.isDarkMode? "app-darkMode" : "app"} >
+        <Board changeTheme={() => this.changeTheme()}/>
+      </div>
+    );
+  }
 }
 
 class Board extends React.Component {
@@ -17,6 +33,7 @@ class Board extends React.Component {
     
     this.state = {
       columnListArr: [],
+      isDarkMode: false,
     }
   }
 
@@ -181,6 +198,10 @@ class Board extends React.Component {
     return col;
   }
 
+  onClickDarkMode() {
+    this.props.changeTheme();
+  }
+
   render() {
     var columns;
     var columnCount = -1;
@@ -206,7 +227,7 @@ class Board extends React.Component {
 
     return (
     <div>
-      <Header onClickAddCol={() => this.onClickAddCol()}/>
+      <Header onClickAddCol={() => this.onClickAddCol()} onClickDarkMode={() => this.onClickDarkMode()}/>
       {txtNoContent}
       {columns} 
     </div>
