@@ -18,6 +18,16 @@ class App extends React.Component {
     
   }
 
+
+  componentDidMount() {
+  window.onbeforeunload = function(e) {
+
+    var dialogText = 'Dialog text here';
+    e.returnValue = dialogText;
+    return dialogText;
+  }
+  }
+
   render() {
     return (
       <div className={this.state.isDarkMode? "app-darkMode" : "app"} >

@@ -1,4 +1,5 @@
 import React from 'react';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 class Column extends React.Component {
     constructor(props) {
@@ -50,17 +51,21 @@ class Column extends React.Component {
                 return (
                     <div key={task.id}>
                     <li>
-                        <textarea spellCheck="false" className="txtarea_task" defaultValue={task.text}></textarea>
+                        <TextareaAutosize  draggable="true" spellCheck="false" className="txtarea_task" defaultValue={task.text}/>
                         <div>         
                             {(!this.props.isFirstCol) ?
-                                <button className="btn-prevArrow" onClick={() => this.onClickMoveTaskToPrevCol(task)}>&#10094;</button>
+                                <button className="btn-prevArrow" onClick={() => this.onClickMoveTaskToPrevCol(task)}>
+                                    <span className="material-icons"></span>
+                                </button>
                                 : null             
                             }
-                            <button className="btn-completeTask" onClick={() => this.onClickCompleteTask(task.id)}>&#10004;</button>
-                            <button id={"btn-deleteTask"+task.id} className="btn-deleteTask" onClick={() => this.onClickDeleteTask(task.id)}>&#10006;</button>
+                            <button className="btn-completeTask" onClick={() => this.onClickCompleteTask(task.id)}><span className="material-icons">&#xe5ca;</span></button>
+                            <button id={"btn-deleteTask"+task.id} className="btn-deleteTask" onClick={() => this.onClickDeleteTask(task.id)}><span className="material-icons">&#xe872;</span></button>
                             {(!this.props.isLastCol) ?
-                                <button className="btn-nextArrow" onClick={() => this.onClickMoveTaskToNextCol(task)}>&#10095;</button>
-                                : null             
+                                <button className="btn-nextArrow" onClick={() => this.onClickMoveTaskToNextCol(task)}>
+                                    <span className="material-icons"></span>
+                                </button>
+                                : null
                             }
                             {(task.completed_time) ?
                                 <p className="p-completedTime">{'Completed: ' + task.completed_time}</p>
@@ -80,14 +85,16 @@ class Column extends React.Component {
         
         return (
             <div className="column">
+                
                 <input type="text" className="txt-columnName" placeholder="Enter Column Name" />
-                <button className="btn-deleteColumn" onClick={this.props.onClickDeleteCol}>X</button>
-
-                <textarea placeholder="Enter New Task"
+                <button className="btn-deleteColumn" onClick={this.props.onClickDeleteCol}><span className="material-icons">&#xe872;</span></button>
+                <TextareaAutosize rowsMin={1}
                     spellCheck="false"
+                    placeholder="Enter New Task"
                     className="txtarea-newTask"
                     value={this.state.taskText} 
-                    onChange={this.onChangeTaskInput.bind(this)}></textarea>
+                    onChange={this.onChangeTaskInput.bind(this)}
+                />
                 <button className="btn-addTask" onClick={this.onClickAddTask.bind(this)}>Post Task</button>
                 <ul>
                     {tasks}

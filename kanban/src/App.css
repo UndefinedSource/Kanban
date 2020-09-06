@@ -56,6 +56,25 @@
   background: #e6c800;
 }
 
+.app-darkMode .p-completedTime {
+  color: #a1a1a1;
+}
+
+.app-darkMode input[type="checkbox"] {
+  background: #000000;
+}
+
+.app-darkMode input[type="checkbox"]:before {
+  background: #ffffff;
+}
+
+
+/* material design */
+button .material-icons {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
 body {
   font-family: 'Alata', sans-serif;
   text-align: center;
@@ -99,6 +118,7 @@ ul li {
 
 textarea {
   border-radius: 5px;
+  line-height: 1.5;
   width: 100%;
   max-width:100%;
 }
@@ -178,7 +198,7 @@ input[type="checkbox"]:before {
   z-index: 1;
   content: '';
   position: absolute; 
-  top: -1px;
+  top: -2px;
   border-radius: 20px;
   width: 35px; 
   height: 35px;
@@ -197,26 +217,17 @@ label {
   display: inline;
 }
 
-
 .switch-on-text, .switch-off-text{
   pointer-events: none;
-  bottom: 30px;
+  bottom: 32px;
 }
 .switch-on-text {
-  color: #ffffff;
+  color: #d6d6d6;
   left: 20px;
 }
 
 .switch-off-text {
   right: 20px;
-}
-
-.app-darkMode input[type="checkbox"] {
-  background: #000000;
-}
-
-.app-darkMode input[type="checkbox"]:before {
-  background: #ffffff;
 }
 
 .btn-deleteColumn, .btn-deleteTask {
@@ -257,12 +268,12 @@ label {
 .btn-addTask {
   margin: 10px 0px 10px 0px;
   width: 100%;
-  background-color: #8fbeff;
+  background-color: #6e95d4;
   border-style: none;
 }
 
 .btn-addTask:hover {
-  background-color: #85b3f2;
+  background-color: #5788d9;
 }
 
 .btn-prevArrow {
@@ -318,6 +329,14 @@ li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow, li:h
   display: none;
 }
 
+.btn-prevArrow .material-icons:after {
+  content: "\e314"; 
+}
+
+.btn-nextArrow .material-icons:after {
+  content: "\e315";
+}
+
 @keyframes fadeIn-animation {
   from {opacity: 0;}
   to {opacity:  1;}
@@ -333,5 +352,14 @@ li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow, li:h
   .column {
     width:calc(140px + 30vw);
   }
+
+  li:hover .btn-nextArrow .material-icons:after {
+    content: "\e313";
+  }
+
+  li:hover .btn-prevArrow .material-icons:after {
+    content: "\e316";
+  }
+
 }
 
