@@ -11,6 +11,17 @@ class Column extends React.Component {
         }
     }
 
+    onChangeNewTaskText(e) {
+        this.setState({
+            newTaskText: e.target.value
+        });
+    }
+
+    // 'this' parameter received as the last parameter, 'e' is 'this' parameter
+    onChangeTaskText(task_id, e) {
+        this.props.editTaskText(this.state.id, task_id, e.target.value);
+    }
+
     onClickAddTask() {
         if (this.state.newTaskText === "") return;
         this.props.addTask(this.state.id, this.state.newTaskText);
@@ -21,24 +32,12 @@ class Column extends React.Component {
         });
     }
 
-    onChangeTaskInput(e) {
-        console.log("New Task input: ", e.target.value);
-        this.setState({
-            newTaskText: e.target.value
-        });
-    }
-
-    // 'this' parameter received as the last parameter
-    onChangeTaskText(task_id, e) {
-        this.props.editTaskText(this.state.id, task_id, e.target.value);
+    onClickCompleteTask(task_id) {
+        this.props.addCompletedTimeToTask(this.state.id, task_id);
     }
 
     onClickDeleteTask(task_id) {
         this.props.deleteTask(this.state.id, task_id);
-    }
-
-    onClickCompleteTask(task_id) {
-        this.props.addCompletedTimeToTask(this.state.id, task_id);
     }
 
     onClickMoveTaskToNextCol(taskObj) {
@@ -68,8 +67,12 @@ class Column extends React.Component {
                                 </button>
                                 : null             
                             }
-                            <button className="btn-completeTask" onClick={() => this.onClickCompleteTask(task.id)}><span className="material-icons">&#xe5ca;</span></button>
-                            <button id={"btn-deleteTask"+task.id} className="btn-deleteTask" onClick={() => this.onClickDeleteTask(task.id)}><span className="material-icons">&#xe872;</span></button>
+                            <button className="btn-completeTask" onClick={() => this.onClickCompleteTask(task.id)}>
+                                <span className="material-icons">&#xe5ca;</span>
+                            </button>
+                            <button id={"btn-deleteTask"+task.id} className="btn-deleteTask" onClick={() => this.onClickDeleteTask(task.id)}>
+                                <span className="material-icons">&#xe872;</span>
+                            </button>
                             {(!this.props.isLastCol) ?
                                 <button className="btn-nextArrow" onClick={() => this.onClickMoveTaskToNextCol(task)}>
                                     <span className="material-icons"></span>
@@ -103,7 +106,7 @@ class Column extends React.Component {
                     placeholder="Enter New Task"
                     className="txtarea-newTask"
                     value={this.state.newTaskText} 
-                    onChange={this.onChangeTaskInput.bind(this)}
+                    onChange={this.onChangeNewTaskText.bind(this)}
                 />
                 <button className="btn-addTask" onClick={this.onClickAddTask.bind(this)}>Post Task</button>
                 <ul>
