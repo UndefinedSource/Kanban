@@ -15,7 +15,7 @@ class Column extends React.Component {
         if (this.state.taskText === "") return;
         this.props.addTask(this.state.id, this.state.taskText);
 
-        // Update the column that has added its new task
+        // Update the column that has added a new task in it
         this.setState({
             taskText: ""
         })
@@ -51,7 +51,7 @@ class Column extends React.Component {
                 return (
                     <div key={task.id}>
                     <li>
-                        <TextareaAutosize  draggable="true" spellCheck="false" className="txtarea_task" defaultValue={task.text}/>
+                        <TextareaAutosize draggable="true" spellCheck="false" className="txtarea-task" defaultValue={task.text}/>
                         <div>         
                             {(!this.props.isFirstCol) ?
                                 <button className="btn-prevArrow" onClick={() => this.onClickMoveTaskToPrevCol(task)}>
@@ -84,8 +84,7 @@ class Column extends React.Component {
         }
         
         return (
-            <div className="column">
-                
+            <div className="column">         
                 <input type="text" className="txt-columnName" placeholder="Enter Column Name" />
                 <button className="btn-deleteColumn" onClick={this.props.onClickDeleteCol}><span className="material-icons">&#xe872;</span></button>
                 <TextareaAutosize rowsMin={1}

@@ -15,17 +15,14 @@ class App extends React.Component {
     this.setState({
       isDarkMode: this.state.isDarkMode ? false : true
     })
-    
   }
-
 
   componentDidMount() {
-  window.onbeforeunload = function(e) {
-
-    var dialogText = 'Dialog text here';
-    e.returnValue = dialogText;
-    return dialogText;
-  }
+    window.onbeforeunload = function(e) {
+      var dialogText = 'Dialog text here';
+      e.returnValue = dialogText;
+      return dialogText;
+    }
   }
 
   render() {
