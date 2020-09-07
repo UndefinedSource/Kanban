@@ -206,6 +206,7 @@ ul li {
 
 .column, .txtarea-task {
   box-shadow: 2px 5px 5px #999999;
+  box-sizing: border-box;
 }
 
 .heading-noContent {
@@ -221,6 +222,7 @@ ul li {
 }
 
 .txtarea-newTask {
+  box-sizing: border-box;
   background-color: #ffffff;
   border: 1px solid #000000;
   display: block;
