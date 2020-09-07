@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/kanban/static/css/main.b45bbd58.chunk.css",
-    "main.js": "/kanban/static/js/main.cfdde03d.chunk.js",
-    "main.js.map": "/kanban/static/js/main.cfdde03d.chunk.js.map",
+    "main.css": "/kanban/static/css/main.689f6344.chunk.css",
+    "main.js": "/kanban/static/js/main.4d04fccc.chunk.js",
+    "main.js.map": "/kanban/static/js/main.4d04fccc.chunk.js.map",
     "runtime-main.js": "/kanban/static/js/runtime-main.72bc9640.js",
     "runtime-main.js.map": "/kanban/static/js/runtime-main.72bc9640.js.map",
-    "static/js/2.86047d3c.chunk.js": "/kanban/static/js/2.86047d3c.chunk.js",
-    "static/js/2.86047d3c.chunk.js.map": "/kanban/static/js/2.86047d3c.chunk.js.map",
+    "static/js/2.db17a86d.chunk.js": "/kanban/static/js/2.db17a86d.chunk.js",
+    "static/js/2.db17a86d.chunk.js.map": "/kanban/static/js/2.db17a86d.chunk.js.map",
     "index.html": "/kanban/index.html",
-    "precache-manifest.451430a763b6f97e78efb0e21cb5b9e6.js": "/kanban/precache-manifest.451430a763b6f97e78efb0e21cb5b9e6.js",
+    "precache-manifest.deb42a6e6bbfbfa744b5a1006ecf5c0b.js": "/kanban/precache-manifest.deb42a6e6bbfbfa744b5a1006ecf5c0b.js",
     "service-worker.js": "/kanban/service-worker.js",
-    "static/css/main.b45bbd58.chunk.css.map": "/kanban/static/css/main.b45bbd58.chunk.css.map",
-    "static/js/2.86047d3c.chunk.js.LICENSE.txt": "/kanban/static/js/2.86047d3c.chunk.js.LICENSE.txt"
+    "static/css/main.689f6344.chunk.css.map": "/kanban/static/css/main.689f6344.chunk.css.map",
+    "static/js/2.db17a86d.chunk.js.LICENSE.txt": "/kanban/static/js/2.db17a86d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.72bc9640.js",
-    "static/js/2.86047d3c.chunk.js",
-    "static/css/main.b45bbd58.chunk.css",
-    "static/js/main.cfdde03d.chunk.js"
+    "static/js/2.db17a86d.chunk.js",
+    "static/css/main.689f6344.chunk.css",
+    "static/js/main.4d04fccc.chunk.js"
   ]
 }
