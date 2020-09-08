@@ -83,6 +83,11 @@ button {
 
 input, textarea {
   color: #595959;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 input::placeholder, textarea::placeholder {
@@ -93,6 +98,11 @@ label {
   display: inline;
   font-size: 14px;
   position: absolute;
+}
+
+li:hover .btn-completeTask, li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow {
+  display: inline-block;
+  animation: fadeIn-animation 0.5s;
 }
 
 textarea {
@@ -128,7 +138,10 @@ ul li {
   font-size: 30px;
   height: 50px;
   justify-self: center;
+  padding: 0px;
   width: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 
 .btn-addColumn:hover {
@@ -191,8 +204,7 @@ ul li {
 }
 
 .column {
-  animation-name: fadeIn-animation;
-  animation-duration: 1s;
+  animation: fadeIn-animation 0.5s;
   background-color: #f2f2f2;
   border-radius: 10px;
   display: inline-block;
@@ -204,9 +216,14 @@ ul li {
   width: calc(90px + 15vw);
 }
 
+.column, .txtarea-newTask, .txtarea-task, .txt-columnName {
+  box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+}
+
 .column, .txtarea-task {
   box-shadow: 2px 5px 5px #999999;
-  box-sizing: border-box;
 }
 
 .heading-noContent {
@@ -222,7 +239,6 @@ ul li {
 }
 
 .txtarea-newTask {
-  box-sizing: border-box;
   background-color: #ffffff;
   border: 1px solid #000000;
   display: block;
@@ -234,8 +250,7 @@ ul li {
 }
 
 .txtarea-task {
-  animation-name: fadeIn-animation;
-  animation-duration: 1s;
+  animation: fadeIn-animation 0.5s;
   background-color: #ffe53d;
   font-size: 20px;
   resize: auto;
@@ -309,21 +324,22 @@ input[type="checkbox"]:before {
   color: #d6d6d6;
   left: 20px;
 }
+/* dark mode toggle button end */
 
 .p-completedTime {
-  animation-name: fadeIn-animation;
-  animation-duration: 1s;
+  animation: fadeIn-animation 0.5s;
   font-size: 12px;
   margin: 0px 0px 15px 0px;
-}
-
-li:hover .btn-completeTask, li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow {
-  display: inline-block;
 }
 
 @keyframes fadeIn-animation {
   from {opacity: 0;}
   to {opacity:  1;}
+}
+
+@keyframes fadeOut-animation {
+  from {opacity: 1;}
+  to {opacity:  0;}
 }
 
 @media (min-width: 511px) and (max-width: 900px) {
