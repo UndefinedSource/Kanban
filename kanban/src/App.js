@@ -16,14 +16,14 @@ class App extends React.Component {
     });
   }
 
-  // componentDidMount() {
-  //   // Alert when closing or refreshing page
-  //   window.onbeforeunload = function(e) {
-  //     var dialogText = '';
-  //     e.returnValue = dialogText;
-  //     return dialogText;
-  //   }
-  // }
+  componentDidMount() {
+    // Alert when closing or refreshing page
+    window.onbeforeunload = function(e) {
+      var dialogText = '';
+      e.returnValue = dialogText;
+      return dialogText;
+    }
+  }
 
   render() {
     return (

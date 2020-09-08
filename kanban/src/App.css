@@ -82,11 +82,11 @@ button {
 }
 
 input, textarea {
-  color: #595959;
-  -webkit-user-select: text;
   -khtml-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
+  -webkit-user-select: text;
+  color: #595959;
   user-select: text;
 }
 
@@ -133,6 +133,8 @@ ul li {
 }
 
 .btn-addColumn {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
   background-color: #6366e6;
   border-radius: 50%;
   font-size: 30px;
@@ -140,8 +142,6 @@ ul li {
   justify-self: center;
   padding: 0px;
   width: 50px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
 }
 
 .btn-addColumn:hover {
@@ -217,12 +217,15 @@ ul li {
 }
 
 .column, .txtarea-newTask, .txtarea-task, .txt-columnName {
-  box-sizing: border-box;
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .column, .txtarea-task {
+  -webkit-appearance: none;
+  -moz-box-shadow: 2px 5px 5px #999999; 
+  -webkit-box-shadow: 2px 5px 5px #999999;
   box-shadow: 2px 5px 5px #999999;
 }
 
@@ -342,15 +345,9 @@ input[type="checkbox"]:before {
   to {opacity:  0;}
 }
 
-@media (min-width: 511px) and (max-width: 900px) {
+@media (min-width: 250px) and (max-width: 500px) {
   .column {
-    width:calc(80px + 20vw);
-  }
-}
-
-@media (min-width: 250px) and (max-width: 550px) {
-  .column {
-    width:calc(140px + 30vw);
+    width:calc(90vw);
   }
 
   li:hover .btn-nextArrow .material-icons:after {
@@ -359,5 +356,11 @@ input[type="checkbox"]:before {
 
   li:hover .btn-prevArrow .material-icons:after {
     content: "\e316";
+  }
+}
+
+@media (min-width: 501px) and (max-width: 900px) {
+  .column {
+    width:calc(10px + 40vw);
   }
 }

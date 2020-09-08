@@ -17,9 +17,7 @@ class Board extends React.Component {
         var col = this.getColumnById(col_id);
         var currentTime = new Date();
     
-        var taskObj = col['tasks'].find((task) => {
-          return task.id === task_id;
-        });
+        var taskObj = col['tasks'].find(task => task.id === task_id);
     
         // create 'completed_time' key then store current time
         taskObj['completed_time'] = currentTime.toLocaleString();
@@ -84,9 +82,7 @@ class Board extends React.Component {
         var col_found = this.getColumnById(col_id);
     
         // filter column's task array by removing matching task ID
-        var filteredCol = col_found['tasks'].filter((task) => {
-          return task.id !== task_id;
-        });
+        var filteredCol = col_found['tasks'].filter(task => task.id !== task_id);
     
         // replace column's tasks with filtered array of tasks
         col_found['tasks'] = filteredCol;
@@ -122,15 +118,12 @@ class Board extends React.Component {
         var col = this.state.columnListArr.find(col_in_columnListArr => col_in_columnListArr.id === col_id)
         return col;
     }
-  
+
     getColumnIndex_in_columnListArr(col_id) {
-      const columnIndex = this.state.columnListArr.findIndex(col => {
-        // return matching column so it returns the column's index
-        if (col.id === col_id) { return col; }
-        else { return null; }
-      });
+      // find column with matching col_id in columnListArr then return its index
+      const columnIndex = this.state.columnListArr.findIndex(col => (col.id === col_id));
       return columnIndex;
-    } 
+    }
   
     moveTaskToNextCol = (col_id, taskObj) => {
         this.deleteTask(col_id, taskObj.id);
@@ -185,9 +178,7 @@ class Board extends React.Component {
     onClickDeleteCol(selectedCol_id) {
       // remove column with matching column ID  
       this.setState({
-        columnListArr: this.state.columnListArr.filter((col) => {
-          return col.id !== selectedCol_id;
-        })
+        columnListArr: this.state.columnListArr.filter(col => col.id !== selectedCol_id)
       });
     }
   
