@@ -7,8 +7,7 @@ class Board extends React.Component {
       super(props)
       
       this.state = {
-        columnListArr: [],
-        isDarkMode: false,
+        columnListArr: []
       }
     }
 
@@ -184,6 +183,9 @@ class Board extends React.Component {
   
     render() {
       var columns;
+      // count column to determine first and last columns and
+      // show move-task-nextCol or move-task=prevCol or both buttons to tasks which 
+      // are in columns that have adjacent columns
       var columnCount = -1;
         columns = this.state.columnListArr.map((column) => {
           columnCount++;
@@ -197,8 +199,8 @@ class Board extends React.Component {
             isLastCol={(columnCount === this.state.columnListArr.length - 1) ? true : false}
             moveTaskToNextCol={this.moveTaskToNextCol}
             moveTaskToPrevCol={this.moveTaskToPrevCol}
-            onClickDeleteCol={() => this.onClickDeleteCol(column.id)}
-            />
+            onClickDeleteCol={() => this.onClickDeleteCol(column.id)}>
+            </Column>
           )
         });
   

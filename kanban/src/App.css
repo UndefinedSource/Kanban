@@ -124,6 +124,7 @@ ul li {
 
 *:focus {
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .app {
