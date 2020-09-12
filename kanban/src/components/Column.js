@@ -1,6 +1,7 @@
 import React from 'react';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Task from './Task';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Column extends React.Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class Column extends React.Component {
         if (this.props.tasks) {
              tasks = this.props.tasks.map(task => {
                 return (
-                    <div key={task.id}>
+                    <CSSTransition key={task.id} in={true} timeout={500} classNames="task-animation" appear={true}>
                     <li>
                         <Task task={task}
                         isFirstCol={this.props.isFirstCol}
@@ -66,7 +67,7 @@ class Column extends React.Component {
                         moveTaskToNextCol={this.moveTaskToNextCol}> 
                         </Task>
                     </li>
-                    </div>
+                    </CSSTransition>
                 )
             });
         }
@@ -90,7 +91,7 @@ class Column extends React.Component {
                 </TextareaAutosize>
                 <button className="btn-addTask" onClick={this.onClickAddTask.bind(this)}>Post Task</button>
                 <ul>
-                    {tasks}
+                    <TransitionGroup>{tasks}</TransitionGroup>
                 </ul>
             </div>
         )
@@ -98,4 +99,4 @@ class Column extends React.Component {
 
 }
 
-export default Column;
+export default React.memo(Column);

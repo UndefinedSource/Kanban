@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Column from './Column';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Board extends React.Component {
     constructor(props) {
@@ -190,29 +191,35 @@ class Board extends React.Component {
         columns = this.state.columnListArr.map((column) => {
           columnCount++;
           return (
-            <Column col_id={column.id} key={column.id} tasks={column.tasks}
-            addCompletedTimeToTask={this.addCompletedTimeToTask}
-            addTask={this.addTask}
-            deleteTask={this.deleteTask}
-            editTaskText={this.editTaskText}
-            isFirstCol={(columnCount === 0) ? true : false}
-            isLastCol={(columnCount === this.state.columnListArr.length - 1) ? true : false}
-            moveTaskToNextCol={this.moveTaskToNextCol}
-            moveTaskToPrevCol={this.moveTaskToPrevCol}
-            onClickDeleteCol={() => this.onClickDeleteCol(column.id)}>
-            </Column>
+            <CSSTransition key={column.id} in={true} timeout={500} classNames="column-animation" appear={true}>
+              <Column col_id={column.id} tasks={column.tasks}
+              addCompletedTimeToTask={this.addCompletedTimeToTask}
+              addTask={this.addTask}
+              deleteTask={this.deleteTask}
+              editTaskText={this.editTaskText}
+              isFirstCol={(columnCount === 0) ? true : false}
+              isLastCol={(columnCount === this.state.columnListArr.length - 1) ? true : false}
+              moveTaskToNextCol={this.moveTaskToNextCol}
+              moveTaskToPrevCol={this.moveTaskToPrevCol}
+              onClickDeleteCol={() => this.onClickDeleteCol(column.id)}>
+              </Column>
+            </CSSTransition>
           )
         });
   
       const txtNoContent = (columns.length === 0) ?
-          <h1 className="heading-noContent">Oops! No Board Columns<br/>Click the plus button above to create a column</h1>
+          <CSSTransition in={true} timeout={{enter: 300, exit: 0}} classNames="heading-noContent-animation" appear={true}>
+            <h1 className="heading-noContent">Oops! No Board Columns<br/>Click the plus button above to create a column</h1>
+          </CSSTransition>
           : null
   
       return (
       <div>
         <Header onClickAddCol={() => this.onClickAddCol()} onClickDarkMode={() => this.onClickDarkMode()}/>
-        {txtNoContent}
-        {columns} 
+        <TransitionGroup>
+          {txtNoContent}
+          {columns}
+       </TransitionGroup>
       </div>
       );
     }
