@@ -408,17 +408,17 @@ it only works when TransitionGroup is wrapped around CSSTransition component */
 
 .heading-noContent-animation-enter-done {
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 500ms;
 }
 
-.heading-noContent-animatio-exit{
+.heading-noContent-animation-exit{
   display: none;
 }
 
-.heading-noContent-animatio-exit-active {
+.heading-noContent-animation-exit-active {
   display: none;
 }
 
-.heading-noContent-animatio-exit-done {
+.heading-noContent-animation-exit-done {
   display: none;
 }

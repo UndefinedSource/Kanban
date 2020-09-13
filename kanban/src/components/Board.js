@@ -207,8 +207,8 @@ class Board extends React.Component {
           )
         });
   
-      const txtNoContent = (columns.length === 0) ?
-          <CSSTransition in={true} timeout={{enter: 300, exit: 0}} classNames="heading-noContent-animation" appear={true}>
+      const heading_noContent = (columns.length === 0) ?
+          <CSSTransition in={true} timeout={{enter: 500, exit: 0}} classNames="heading-noContent-animation" appear={true}>
             <h1 className="heading-noContent">Oops! No Board Columns<br/>Click the plus button above to create a column</h1>
           </CSSTransition>
           : null
@@ -217,7 +217,7 @@ class Board extends React.Component {
       <div>
         <Header onClickAddCol={() => this.onClickAddCol()} onClickDarkMode={() => this.onClickDarkMode()}/>
         <TransitionGroup>
-          {txtNoContent}
+          {heading_noContent}
           {columns}
        </TransitionGroup>
       </div>

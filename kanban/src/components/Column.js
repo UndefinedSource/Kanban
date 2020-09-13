@@ -8,25 +8,16 @@ class Column extends React.Component {
         super(props);
 
         this.state = {
-            id: this.props.col_id,
-            newTaskText: ""
+            id: this.props.col_id
         }
-    }
-
-    onChangeNewTaskText(e) {
-        this.setState({
-            newTaskText: e.target.value
-        });
+        this.newTaskTextRef = React.createRef();
     }
 
     onClickAddTask() {
-        if (this.state.newTaskText === "") return;
-        this.props.addTask(this.state.id, this.state.newTaskText);
+        // check textarea newTaskText value if it has no value
+        if (this.newTaskTextRef.current.value === "") return;
 
-        // Update the column that has added a new task in it
-        this.setState({
-            newTaskText: ""
-        });
+        this.props.addTask(this.state.id, this.newTaskTextRef.current.value);
     }
 
     changedTaskText = (task_id, editedTaskText) => {
@@ -72,9 +63,7 @@ class Column extends React.Component {
             });
         }
 
-        else {
-            tasks = null
-        }
+        else { tasks = null }
         
         return (
             <div className="column">         
@@ -86,8 +75,8 @@ class Column extends React.Component {
                     spellCheck="false"
                     placeholder="Enter New Task"
                     className="txtarea-newTask"
-                    value={this.state.newTaskText} 
-                    onChange={this.onChangeNewTaskText.bind(this)}>
+                    defaultValue=""
+                    ref={this.newTaskTextRef}>
                 </TextareaAutosize>
                 <button className="btn-addTask" onClick={this.onClickAddTask.bind(this)}>Post Task</button>
                 <ul>
