@@ -14,10 +14,15 @@ class Column extends React.Component {
     }
 
     onClickAddTask() {
-        // check textarea newTaskText value if it has no value
-        if (this.newTaskTextRef.current.value === "") return;
+        var newTaskText = this.newTaskTextRef.current.value;
 
-        this.props.addTask(this.state.id, this.newTaskTextRef.current.value);
+        // check textarea newTaskText value if it has no value
+        if (newTaskText === "") return;
+
+        this.props.addTask(this.state.id, newTaskText);
+
+        // must reference actual 'newTaskTextRef' variable to reset its value
+        this.newTaskTextRef.current.value = "";
     }
 
     changedTaskText = (task_id, editedTaskText) => {
