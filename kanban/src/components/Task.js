@@ -1,5 +1,5 @@
-import React from 'react';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import React from "react";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
 const Task = (props) => {
     const task_id = props.task.id;

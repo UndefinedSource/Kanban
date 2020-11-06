@@ -100,7 +100,7 @@ label {
   position: absolute;
 }
 
-li:hover .btn-completeTask, li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow {
+.btn-columnSetting:hover .btn-deleteColumn, li:hover .btn-completeTask, li:hover .btn-deleteTask, li:hover .btn-nextArrow, li:hover .btn-prevArrow {
   display: inline-block;
   animation: fadeIn-animation 0.5s;
 }
@@ -164,11 +164,11 @@ ul li {
   display: none;
 }
 
-.btn-completeTask {
+.btn-completeTask, .btn-columnSetting {
   background-color: #61b86d;
 }
 
-.btn-completeTask:hover {
+.btn-completeTask:hover, .btn-columnSetting:hover {
   background-color: #2eb13f;
 }
 
@@ -277,20 +277,20 @@ ul li {
 
 /* dark mode toggle button */
 input:checked[type="checkbox"]:before {
-  transform: translateX(50px);
+  transform: translateX(40px);
 } 
 
 input[type="checkbox"] {
-  background: #d6d6d6;
+  background: #ccc7c7;
   cursor: pointer;
   height: 25px;
   position: relative;
-  width: 80px;
+  width: 70px;
   -webkit-appearance: none;
 }
 
 input[type="checkbox"]:before {
-  background: #575151;
+  background: #35394a;
   border-radius: 20px;
   content: '';
   height: 30px;

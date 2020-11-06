@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Board extends React.Component {
     constructor(props) {
-      super(props)
+      super();
       
       this.state = {
         columnListArr: []
@@ -155,7 +155,7 @@ class Board extends React.Component {
         }
     }
   
-    onClickAddCol() {
+    addColOnClickHandler() {
       var currentList = this.state.columnListArr;
       var newCol;
       
@@ -171,11 +171,11 @@ class Board extends React.Component {
       });
     }
 
-    onClickDarkMode() {
+    darkModeOnClickHandler() {
         this.props.changeTheme();
     }
   
-    onClickDeleteCol(selectedCol_id) {
+    deleteColOnClickHandler(selectedCol_id) {
       // remove column with matching column ID  
       this.setState({
         columnListArr: this.state.columnListArr.filter(col => col.id !== selectedCol_id)
@@ -201,7 +201,7 @@ class Board extends React.Component {
               isLastCol={(columnCount === this.state.columnListArr.length - 1) ? true : false}
               moveTaskToNextCol={this.moveTaskToNextCol}
               moveTaskToPrevCol={this.moveTaskToPrevCol}
-              onClickDeleteCol={() => this.onClickDeleteCol(column.id)}>
+              onClickDeleteCol={() => this.deleteColOnClickHandler(column.id)}>
               </Column>
             </CSSTransition>
           )
@@ -215,7 +215,7 @@ class Board extends React.Component {
   
       return (
       <div>
-        <Header onClickAddCol={() => this.onClickAddCol()} onClickDarkMode={() => this.onClickDarkMode()}/>
+        <Header onClickAddCol={() => this.addColOnClickHandler()} onClickDarkMode={() => this.darkModeOnClickHandler()}/>
         <TransitionGroup>
           {heading_noContent}
           {columns}

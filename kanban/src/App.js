@@ -1,37 +1,26 @@
-import React from 'react';
-import Board from './components/Board';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Board from "./components/Board";
+import "./App.css";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isDarkMode: false,
-    }
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const changeTheme = () => {
+    setIsDarkMode(!isDarkMode);
   }
 
-  changeTheme() {
-    this.setState({
-      isDarkMode: this.state.isDarkMode ? false : true
-    });
-  }
-
-  componentDidMount() {
-    // Alert when closing or refreshing page
+  useEffect(() =>{
     window.onbeforeunload = function(e) {
-      var dialogText = '';
+      var dialogText = "";
       e.returnValue = dialogText;
-      return dialogText;
     }
-  }
+  }, []);
 
-  render() {
-    return (
-      <div className={this.state.isDarkMode? "app-darkMode" : "app"} >
-        <Board changeTheme={() => this.changeTheme()}/>
-      </div>
-    );
-  }
+  return (
+    <div className={isDarkMode? "app-darkMode" : "app"} >
+      <Board changeTheme={() => changeTheme()}/>
+    </div>
+  );
 }
 
 export default App;

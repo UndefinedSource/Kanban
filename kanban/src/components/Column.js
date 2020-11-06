@@ -1,7 +1,7 @@
 import React from 'react';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import Task from './Task';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import Task from "./Task";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Column extends React.Component {
     constructor(props) {
